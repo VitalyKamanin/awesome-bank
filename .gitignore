@@ -1,0 +1,11 @@
+# Go
+*.test
+*.out
+*.exe
+*.DS_Store
+env/
+.env
+*.log
+.idea
+pgp_private.key
+pgp_public.key

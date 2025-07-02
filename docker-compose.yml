@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: awesome_user
+      POSTGRES_PASSWORD: awesome_pass
+      POSTGRES_DB: awesome_db
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: awesome_user
+      DB_PASSWORD: awesome_pass
+      DB_NAME: awesome_db
+      JWT_SECRET: jwt_key
+      JWT_TTL: 24h
